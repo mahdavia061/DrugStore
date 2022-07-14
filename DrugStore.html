@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html >
+
+
+  <style >
+
+body{
+  background-color: #f0f0f0
+}
+  .center{
+    ;
+    text-align: center;
+  }
+  .title-color{
+    color:#008B8A;
+    font-family: cursive;
+
+  }
+    .list-color{
+      background-color: lightgray;
+      font-family: Cursive;
+      font-size: 16px;
+
+    }
+
+  .select-border{
+    border: solid #AFEEEE;
+    font-family: Cursive;
+    font-size: 16px;
+    background-color: #FAF0E6;
+  }
+
+    .button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  background-color: #2F4F4F;
+}
+  </style>
+
+
+  <head>
+    <meta charset="utf-8">
+    <title>Drug Store</title>
+    	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  </head>
+  <body>
+
+<h1 class="title-color center">My DrugStore</h1>
+
+    <form id="DSForm" class="select-border center">
+
+      <div>Please Chose the Drug you want from here :</div>
+      <span>
+        <select name="Drugs" id="DrugsName">
+          <option value="alcohol">Alcohol</option>
+          <option value="tobacco">Tobacco</option>
+          <option value="cannabis">Cannabis</option>
+          <option value="methamphetamines">Methamphetamines</option>
+          <option value="aspirin">Aspirin</option>
+        </select>
+      </span>
+
+          <span>
+            <label for="RIC">RIC:</label>
+              <input type="checkbox"  value="RIC" id="RIC">
+          </span>
+          <div>
+            <label for="TT">Number of boxpills in prescription :</label>
+            <input type="number" id="TT" max="999">
+          </div>
+
+          <div>
+            <label for="TPD">Number of Pills patient have to eat for each 8 hour :</label>
+            <input type="number" id="TPD" max="3">
+          </div>
+
+
+
+    </form>
+<button class="button" type="button" onclick="DSList()">Submit</button>
+
+      <ul class="list-color" id="DSList" >
+
+
+
+
+      </ul>
+
+
+    <script>
+      //Exercise
+      function DSList() {
+        var Drug = document.getElementById("DrugsName").value;
+        var text = document.createTextNode(Drug);
+        var newDrug = document.createElement("li");
+        newDrug.appendChild(text);
+        document.getElementById("DSList").appendChild(newDrug);
+
+        var item;
+
+        if (item = document.getElementById("RIC").checked) {
+
+          var RICtxt = document.createTextNode("RIC");
+          var DrugE = document.createElement("li");
+          DrugE.appendChild(RICtxt);
+          document.getElementById("DSList").appendChild(DrugE);
+        }
+
+
+        var TDs = document.getElementById("TT").value;
+        var TTtxt = document.createTextNode("Number of boxpills in prescription :"+TDs);
+        var TTle = document.createElement("li");
+        TTle.appendChild(TTtxt);
+        document.getElementById("DSList").appendChild(TTle);
+
+
+        var TPDs = document.getElementById("TPD").value;
+        var TPDtxt = document.createTextNode("Number of Pills patient have to eat for each 8 hour :"+TPDs);
+        var TPDle = document.createElement("li");
+        TPDle.appendChild(TPDtxt);
+        document.getElementById("DSList").appendChild(TPDle);
+
+
+      }
+     </script>
+  </body>
+</html>
